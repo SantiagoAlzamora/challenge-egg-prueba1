@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'wouter'
+import {navigate} from "wouter/use-location"
 
 export default function Register() {
+
+  const [registrado, setRegistrado] = useState()
 
   function handleSubmit(e){
     e.preventDefault()
@@ -18,6 +21,7 @@ export default function Register() {
       usuario
     ]
     sessionStorage.setItem('usuarios',JSON.stringify(newUsuarios))
+    navigate("/login")
   }
 
   return (
